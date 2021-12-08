@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Toggle snap.js file",
+    "version": "1.0",
+    "description": "Toggle snap.js file from the webpage.",
+    "permissions": [
+        "contextMenus",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128":"images/icon.png"
+    }
+}
