@@ -2,7 +2,7 @@
 chrome.contextMenus.create({
   title: "Toggle .snap.js file",
   id: "exclude_snap_file",
-  contexts: ["all"],
+  contexts: ["all"]
 });
 
 // On click event execute script.
