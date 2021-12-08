@@ -1,8 +1,7 @@
 <p align="center">Toggle Snap.js File</p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/extension-chrome-COLOR
-" alt="extension">
+<img src="https://img.shields.io/badge/extension-chrome-COLOR" alt="extension">
 <img src="https://img.shields.io/badge/author-Kapil Paul-COLOR" alt="extension">
 <img src="https://img.shields.io/badge/version-1.0-COLOR" alt="extension">
 </p>
