@@ -16,6 +16,18 @@ chrome.contextMenus.create({
   contexts: ["all"],
 });
 
+chrome.contextMenus.create({
+  title: "PR Title (base <-- head)",
+  id: "pr_title",
+  contexts: ["all"],
+});
+
+chrome.contextMenus.create({
+  title: "Sync PR Title",
+  id: "sync_pr_title",
+  contexts: ["all"],
+});
+
 // On click event execute script.
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   chrome.scripting.executeScript({
@@ -38,6 +50,14 @@ const handleMenuItemCallback = (info) => {
 
     case "toggle_test_file":
       return toggleTestFile;
+      break;
+
+    case "pr_title":
+      return prTitle;
+      break;
+
+    case "sync_pr_title":
+      return syncPrTitle;
       break;
   }
 };
@@ -63,4 +83,42 @@ const toggleTestFile = () => {
 // Toggle review chekbox.
 const toggleAllReviewed = () => {
   document.querySelectorAll(".js-reviewed-checkbox").forEach((c) => c.click());
+};
+
+// PR Title.
+const prTitle = () => {
+  const target = document.querySelector(
+    "#base-ref-selector summary span.css-truncate"
+  );
+
+  const targetBranch = target?.innerHTML;
+
+  const from = document.querySelector(
+    "#head-ref-selector summary span.css-truncate"
+  );
+
+  const fromBranch = from?.innerHTML;
+
+  document.getElementById(
+    "pull_request_title"
+  ).value = `\`${targetBranch}\` <-- \`${fromBranch}\``;
+};
+
+// Sync PR Title.
+const syncPrTitle = () => {
+  const target = document.querySelector(
+    "#base-ref-selector summary span.css-truncate"
+  );
+
+  const targetBranch = target?.innerHTML;
+
+  const from = document.querySelector(
+    "#head-ref-selector summary span.css-truncate"
+  );
+
+  const fromBranch = from?.innerHTML;
+
+  document.getElementById(
+    "pull_request_title"
+  ).value = `Update \`${targetBranch}\` with \`${fromBranch}\``;
 };
