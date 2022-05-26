@@ -9,6 +9,17 @@
         "scripting",
         "tabs"
     ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_scripts": [ {
+        "matches": [ "http://*/*", "https://*/*"],
+        "match_origin_as_fallback": true,
+        "js": [
+            "js/jquery-3.6.0.min.js"
+        ]
+    } ],
     "background": {
         "service_worker": "js/background.js"
     },
@@ -16,6 +27,6 @@
         "16": "images/icon.png",
         "32": "images/icon.png",
         "48": "images/icon.png",
-        "128":"images/icon.png"
+        "128": "images/icon.png"
     }
 }
